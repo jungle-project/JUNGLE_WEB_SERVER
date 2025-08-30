@@ -1,20 +1,19 @@
+# Makefile for echo_client and echo_server
 CC = gcc
-CFLAGS = -g -Wall
+CFLAGS = -Wall -Wextra -g
 LDFLAGS = -lpthread
 
+# 디렉토리 및 파일
 SRCDIR = .
 TARGETS = client server
 
 all: $(TARGETS)
 
-csapp.o: csapp.c
-	$(CC) $(CFLAGS) -c csapp.c
+client: $(SRCDIR)/echo_client.c $(SRCDIR)/csapp.c
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
-client: client.c csapp.o
-	$(CC) $(CFLAGS) -o client csapp.o client.c $(LDFLAGS)
-	
-server: server.c csapp.o
-	$(CC) $(CFLAGS) -o server csapp.o server.c $(LDFLAGS)
+server: $(SRCDIR)/echo_server.c $(SRCDIR)/csapp.c
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 clean:
-	rm -rf $(TARGETS)
+	rm -f $(TARGETS)

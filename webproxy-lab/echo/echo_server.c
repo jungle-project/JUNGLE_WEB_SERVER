@@ -1,8 +1,7 @@
 #include "csapp.h"
-// #define MAXLINE 10000
 
 static void echo(int connfd);
-typedef struct sockaddr SA;
+// typedef struct sockaddr SA;
 
 int main(int arg, char* args[]) {
     // getaddinfo
