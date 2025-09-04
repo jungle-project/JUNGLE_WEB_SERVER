@@ -33,6 +33,7 @@
 *.so
 *.so.*
 *.dylib
+*.tar
 
 # Executables
 *.exe
@@ -56,3 +57,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+
+test/
+
